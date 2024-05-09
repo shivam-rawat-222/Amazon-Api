@@ -8,9 +8,11 @@ const PORT = process.env.PORT || 1000;
 const app = express();
 
 
-// const s_api = "e77b66583089269b1854a0dc5e7d972f";
+// const s_api = use this "e77b66583089269b1854a0dc5e7d972f";
 
 // const targeturl = "https://openai.com/blog/chatgpt"
+
+
 
 const getbaseurl = (api_key) => {
     const url = `http://api.scraperapi.com?api_key=${api_key}&autoparse=true`;
@@ -24,9 +26,9 @@ app.get("/", (req, res) => {
         "message": "Hello Guys Welcome to amazon scrapper",
         "description": "you can use this api in your projects for getting amazon product details and more information ",
         "developer": "shivam rawat",
-        "get product info URL ": "products/<productId>?api_key=<yourapikey>",
-        "get product reviews URL ": "products/<productId>/reviews?api_key=<yourapikey>",
-        "search products URL ": "products/search/<searchquery>?api_key=<yourapikey>"
+        "get product info URL ": "products/<productId>?api_key=e77b66583089269b1854a0dc5e7d972f   Product id: B0BH7QTZGN ",
+        "get product reviews URL ": "products/<productId>/reviews?api_key=e77b66583089269b1854a0dc5e7d972f   Product id: B0BH7QTZGN",
+        "search products URL ": "products/search/<searchquery>?api_key=e77b66583089269b1854a0dc5e7d972f"
     }).status(200)
 
 })
@@ -49,7 +51,7 @@ app.get("/products/:productId", async (req, res) => {
 
 
     } catch (error) {
-        res.json("error ").status(404)
+        res.json(error).status(404)
 
     }
 }
@@ -111,4 +113,3 @@ app.listen((PORT), () => {
     console.log(`http://localhost:${PORT}`)
 })
 
-export default app;
